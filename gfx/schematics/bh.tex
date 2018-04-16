@@ -1,0 +1,118 @@
+\begin{landscape}
+\begin{figure}[H]
+%\vspace*{-2cm}
+%\hspace*{0.5cm}
+\vspace*{-5cm}
+\hspace*{0.5cm}
+\captionsetup[subfloat]{justification=centering}
+\subfloat{%
+\begin{minipage}{162pt}
+	\begin{tikzpicture}[xscale=2.5,yscale=1.25]
+		\coordinate (zero) at (-2,-2);
+		\coordinate[right=2 of zero] (a1);
+		\draw[very thick,->] (zero) ++ (-0.15,0) -- (2,-2) node[below left] {log E};
+		\draw[very thick,->] (zero) ++ (0,-0.15) -- (-2,2) node[above left,rotate=90] {log E$\cdot$F};
+		\node[draw,thick,circle,fill=white] at (-2,-2) {A};
+		\clip (-2,-2) rectangle (2,2);
+		\begin{scope}[shift={(0,0.3)},yscale=1.2]
+		%\draw[step=0.1cm,gray,very thin] (-2,-2) grid (2,2);
+		%\draw[step=0.5cm,black,thin] (-2,-2) grid (2,2);
+		\draw[scale=0.5,domain=-2:3,smooth,variable=\x,thick,dashed] plot ({\x*0.8-3.5},{-\x*\x+1});
+		\node[] at (-0.3,-1.5) {\footnotesize FL};
+		\draw[scale=0.5,domain=-2.5:2.5,smooth,variable=\x,thick,dashdotted] plot ({\x*0.05-1},{-\x*\x-1});
+		\node[] at (-1.6,0.2) {\footnotesize BB};
+		%\draw[scale=0.5,domain=-10:10,smooth,variable=\x,thick,solid] plot ({\x},{-0.5*\x-2.5});
+		\node[] at (-1.65,-1.5) {\footnotesize PL};	
+		\end{scope}
+		\draw  plot[thick,smooth, tension=.7] coordinates {(-1.8,-2) (-1.4,-0.4) (0.6,-1.4) (1,-2)};
+		\draw[thick]  plot[smooth, tension=.7] coordinates {(-2,0.7) (-1.7,1.8)  (-1.2,0.3) (-0.9,-0.4)(-0.6,-0.6) (-0.5,-0.2) (-0.3,-0.7) (0.6,-1.4) (0.9,-1.7) (1,-2)};
+	\end{tikzpicture}
+	\label{fig:bh_sp}
+\end{minipage}}
+\hspace{6cm} % induce horizontal separation
+\subfloat{%
+\begin{minipage}[c]{162pt}
+	\begin{tikzpicture}[xscale=2.5,yscale=1.25]
+		\coordinate (zero) at (-2,-2);
+		\coordinate[right=2 of zero] (a1);
+		\begin{scope}[shift={(0,-0.25)}]
+		
+		\end{scope}
+		\draw[very thick,->] (zero) ++ (-0.15,0) -- (2,-2) node[below left] {Hardness};
+		\draw[very thick,->] (zero) ++ (0,-0.15) -- (-2,2) node[above left,rotate=90] {Intensity};
+		\node[draw,thick,circle,fill=white] at (-2,-2) {B};
+		\draw[thick]  plot[smooth, tension=.7] coordinates {(1.25,-1.75) (0.8,1.2) (-1,1.25) (-1,-0.75) (0.6,-0.6) (1,-1.75)};
+		\node at (1.4,0) {\footnotesize HS};
+		\node at (0.6,1.8) {\footnotesize HIMS};
+		\node at (-0.6,1.8) {\footnotesize SIMS};
+		\node at (-1.4,0.2) {\footnotesize SS};
+		\node at (-0.6,-1.2) {\footnotesize SIMS};
+		\node at (0.55,-1) {\footnotesize HIMS};
+	\end{tikzpicture}
+\label{fig:bh_hi}
+\end{minipage}}
+
+\hspace*{0.5cm}
+\subfloat{%
+  \begin{minipage}{162pt}  
+	\begin{tikzpicture}[xscale=2.5,yscale=1.25]
+		\coordinate (zero) at (-2,-2);
+		\coordinate[right=2 of zero] (a1);
+		\draw[very thick,->] (zero) ++ (-0.15,0) -- (2,-2) node[below left] {log $\nu$};
+		\draw[very thick,->] (zero) ++ (0,-0.15) -- (-2,2) node[above left,rotate=90] {log $\nu\cdot$P};
+		\node[draw,thick,circle,fill=white] at (-2,-2) {C};
+		\draw[thick,dashed] (-2,-0.8) node (v1) {} -- (-0.1,0.4) -- (1.4,-0.7) node (v2) {};
+		\clip (zero) rectangle (2,2);
+		\draw[thick,dotted]  plot[smooth, tension=.7] coordinates {(-0.8,-2) (-0.5,-1.6) (-0.3,0.9) (-0.1,-1.6) (0.3,-2)};
+		\node at (-0.7,-1.2) {\footnotesize QPO};
+		\draw[thick,dotted]  plot[smooth, tension=.7] coordinates {(-0.2,-2) (0.1,-1.6) (0.2,-0.3) (0.3,-1.6) (0.6,-2)};
+		\node[right] at (0.3,-1.2) {\footnotesize Harmonic};
+		\node at (-1.7,-0.9) {\footnotesize BBN};
+		\draw[thick]  plot[smooth, tension=.7] coordinates {(v1) (-0.6,0.3) (-0.3,1.8) (-0.1,0.6) (0.1,0.4) (0.2,0.6) (0.4,0.1)  (v2)};
+\end{tikzpicture}
+\label{fig:bh_ps}
+\end{minipage}}
+\hspace{6cm} % induce horizontal separation
+\subfloat{%
+  \begin{minipage}[c]{162pt}
+	\begin{tikzpicture}[xscale=2.5,yscale=1.25]
+		\tikzset{lor/.style={thick, smooth, dotted, /pgf/fpu,/pgf/fpu/output format=fixed}}
+		\coordinate (zero) at (-2,-2);
+		\coordinate[right=2 of zero] (a1);
+		\draw[very thick,->] (zero) ++ (-0.15,0) -- (2,-2) node[below left] {$PC1$};
+		\draw[very thick,->] (zero) ++ (0,-0.15) -- (-2,2) node[above left,rotate=90] {$PC2$};
+		\node[draw,thick,circle,fill=white] at (-2,-2) {D};
+		\clip (-2,-2) rectangle (2,2);
+		\begin{scope}[xscale=1,yscale=0.8]
+		%\draw[step=0.1cm,gray,very thin] (-2,-2) grid (2,2);
+		%\draw[step=0.5cm,black,thin] (-2,-2) grid (2,2);
+		\fill[top color=black, bottom color=black!20,shading=axis,shading angle=45,rotate around={-45:(0,0)}] (0,0) ellipse (2cm and 1cm);
+		\fill[white,rotate around={-45:(0,0)}] (0,0) ellipse (1.5cm and 0.5cm);
+
+		\node[] at (0.6,1.1) {\footnotesize HS};
+		\node[] at (1.6,-1.5) {\footnotesize HI};
+		\node[] at (-0.3,-1.3) {\footnotesize SI};
+		\node[] at (-1.65,0.5) {\footnotesize SS};
+
+		\coordinate (c) at (0,0);
+
+		\begin{scope}
+		\clip[rotate around={-45:(0,0)}] (0,0) ellipse (2.25cm and 1.25cm);
+		\draw[very thick,black!70,dashed] (c) -- +(-6:5);
+		\draw[very thick,black!70,dashed] (c) -- +(114:5);
+		\draw[very thick,black!70,dashed] (c) -- +(138:5);
+		\draw[very thick,black!70,dashed] (c) -- +(-168:5);
+		\draw[very thick,black!70,dashed] (c) -- +(-66:5);
+		\end{scope}
+		\end{scope}
+	\end{tikzpicture}
+  \label{fig:bh_pc}
+  \end{minipage}}
+\caption[Common diagrams for black holes]{%
+\emph{Common diagrams for black holes} \spacedlowsmallcaps{upper left (A)} A schematic representation of possible energy spectral components, plotted in terms of energy times flux. The disk blackbody $BB$ is denoted by the dashed line, the powerlaw $PL$ by the lower solid line, the fluorescent iron line $FL$ by the dashdotted line, and the total in the upper solid line. With the energy spectra varying over time, these components can pivot and change significantly in intensity \citep[for a full review see][]{gilfanov2014observational}. 
+\spacedlowsmallcaps{upper right (B)} A sketch of a \ac{HI}~diagram, showing the general path along which black holes transition. The regions corresponding to canonical spectral states are given in the diagram, with the \acf{HS}, the \acf{HIMS}, the \acf{SIMS} and the \acf{SS} \citep{altamirano}. While in this diagram the transition through the soft states is represented by a smooth line, it commonly is more jagged.
+\spacedlowsmallcaps{lower left (C)} A representative power spectrum showing common components, with the broad band noise ($BBN$), a \acf{QPO} and its associated harmonic. Based on \citet{pahari2013comparison}.
+\spacedlowsmallcaps{lower right (D)} A schematic \ac{PCC}~diagram, showing the general trend of black hole power colour values. Sources transition along the oval shape, through the various spectral states delineated by the dotted lines. Abbreviations correspond to those adopted in the \ac{HI}~diagram in the upper right plot. The area with no labeling is an overlap of hard and soft states, in which observations can be distinguished with hardness or \acf{RMS} values. Based on \citet{heil2015power}.
+}\label{fig:bh_graphs}
+\end{figure}
+\end{landscape}

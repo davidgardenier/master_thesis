@@ -1,0 +1,125 @@
+%*******************************************************
+% Table of Contents
+%*******************************************************
+%\phantomsection
+
+\begingroup 
+	\let\clearpage\relax
+	\let\cleardoublepage\relax
+	\let\cleardoublepage\relax
+
+	\refstepcounter{dummy}
+	\pdfbookmark[1]{\contentsname}{tableofcontents}
+	\setcounter{tocdepth}{1} % <-- 2 includes up to subsections in the ToC
+	\setcounter{secnumdepth}{3} % <-- 3 numbers up to subsubsections
+	\manualmark
+	\markboth{\spacedlowsmallcaps{\contentsname}}{\spacedlowsmallcaps{\contentsname}}
+
+	% Added to reduce sapce between two consecutive chapter headings
+	% --------------------------------------------------------------
+	\makeatletter
+	\newskip\old@cftbeforechapskip
+	\old@cftbeforechapskip\cftbeforechapskip
+	\let\old@l@chapter\l@chapter
+	\let\old@l@section\l@section
+	\def\l@chapter#1#2{\old@l@chapter{#1}{#2}\cftbeforechapskip3pt}% set your value here
+	\def\l@section#1#2{\old@l@section{#1}{#2}\cftbeforechapskip\old@cftbeforechapskip}
+	\makeatother
+	% --------------------------------------------------------------
+	\tableofcontents 
+	\automark[section]{chapter}
+	\renewcommand{\chaptermark}[1]{\markboth{\spacedlowsmallcaps{#1}}{\spacedlowsmallcaps{#1}}}
+	\renewcommand{\sectionmark}[1]{\markright{\thesection\enspace\spacedlowsmallcaps{#1}}}
+       
+\endgroup
+%*******************************************************
+% List of Figures and of the Tables
+%*******************************************************
+\begingroup 
+    \let\clearpage\relax
+    \let\cleardoublepage\relax
+    \let\cleardoublepage\relax
+    %*******************************************************
+    % List of Figures
+    %*******************************************************    
+    %\phantomsection 
+    \newpage
+    \refstepcounter{dummy}
+    %\addcontentsline{toc}{chapter}{\listfigurename}
+    \pdfbookmark[1]{\listfigurename}{lof}
+    \listoffigures
+
+    \vspace{8ex}
+
+    %*******************************************************
+    % List of Tables
+    %*******************************************************
+    %\phantomsection 
+    \refstepcounter{dummy}
+    %\addcontentsline{toc}{chapter}{\listtablename}
+    \pdfbookmark[1]{\listtablename}{lot}
+    \listoftables
+        
+    \vspace{8ex}
+%   \newpage
+    
+    %*******************************************************
+%     % List of Listings
+%     %*******************************************************      
+%       %\phantomsection 
+%     \refstepcounter{dummy}
+%     %\addcontentsline{toc}{chapter}{\lstlistlistingname}
+%     \pdfbookmark[1]{\lstlistlistingname}{lol}
+%     \lstlistoflistings 
+% 
+%     \vspace{8ex}
+       
+    %*******************************************************
+    % Acronyms
+    %*******************************************************
+    %\phantomsection
+    \cleartoleftpage
+    \refstepcounter{dummy}
+    \pdfbookmark[1]{Acronyms}{acronyms}
+    \markboth{\spacedlowsmallcaps{Acronyms}}{\spacedlowsmallcaps{Acronyms}}
+    \chapter*{Acronyms}
+    \begin{acronym}[HEASARC]
+	\acro{AMSP}{Accreting Millisecond Pulsar}
+	\acro{ASM}{All Sky Monitor}
+	\acro{BBN}{Broad Band Noise}
+	\acro{EA}{Event Analyser}
+	\acro{ECC}{Energy Colour-Colour}
+	\acro{EDS}{Experiment Data System}
+	\acro{EIS}{Extreme Island State}
+	\acro{FB}{Flaring Branch}
+	\acro{GTI}{Good Time Interval}
+	\acro{HB}{Horizontal Branch}
+	\acro{HEASARC}{High Energy Astrophysics Science Archive Research Center}
+	\acro{HEXTE}{High Energy X-ray Timing Experiment}
+	\acro{HH}{Hardness-Hue}
+	\acro{HI}{Hardness-Intensity}
+	\acro{HIMS}{Hard-Intermediate State}
+	\acro{HMXB}{High-Mass X-ray Binary}
+	\acrodefplural{HMXB}{High-Mass X-ray Binaries}
+	\acro{HS}{Hard State}
+	\acro{ISCO}{Innermost Stable Circular Orbit}
+	\acro{IS}{Island State}
+	\acro{LB}{Lower Banana}
+	\acro{LLB}{Lower-Left Banana}
+	\acro{LMXB}{Low-Mass X-ray Binary}
+	\acrodefplural{LMXB}{Low-Mass X-ray Binaries}
+	\acro{NB}{Normal Branch}
+	\acro{PCC}{Power Colour-Colour}
+	\acro{PCA}{Proportional Counter Array}
+	\acro{PCU}{Proportional Counter Unit}
+	\acro{QPO}{Quasi-Periodic Oscillation}
+	\acro{RMS}{Root Mean Square}
+	\acro{RXTE}{Rossi X-ray Timing Explorer}
+	\acro{SIMS}{Soft-Intermediate State}
+	\acro{SAA}{South Atlantic Anomaly}
+	\acro{SS}{Soft State}
+	\acro{UB}{Upper Banana}
+	\acro{VLE}{Very Large Event}
+	\acro{VLFN}{Very Low Frequency Noise}
+    \end{acronym}                     
+\endgroup
